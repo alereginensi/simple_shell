@@ -2,10 +2,10 @@
 #include <string.h>
 
 /**
- * strtok - splits a string
+ * main - splits a string
  * Return: 0
  */
-int strtok()
+int main()
 {
 	char string[50] = "testing ted tested toc";
 	char * token = strtok(string, " ");

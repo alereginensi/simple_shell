@@ -2,10 +2,10 @@
 #include<unistd.h>
 
 /**
- * getppid - main
+ * main - main
  * Return: 0
  */
-int getppid()
+int main()
 {
 	printf("Process ID: %d\n", getpid() );
 	printf("Parent Process ID: %d\n", getppid() );
