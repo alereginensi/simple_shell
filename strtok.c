@@ -1,7 +1,11 @@
 #include<stdio.h>
 #include <string.h>
 
-int main()
+/**
+ * strtok - splits a string
+ * Return: 0
+ */
+int strtok()
 {
 	char string[50] = "testing ted tested toc";
 	char * token = strtok(string, " ");
