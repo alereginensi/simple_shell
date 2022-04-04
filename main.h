@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <stdarg.h>
+#include <string.h>
+#include <sys/types.h>
 
-int strtok();
 int getppid();
 
 #endif
