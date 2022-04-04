@@ -3,8 +3,12 @@
 /**
  */
 
-int main()
+int main(void)
 {
+	int count = 0;
+
+	while (count < 5)
+	{
 	pid_t pid = fork();
 
 	if (pid == 0)
@@ -23,6 +27,8 @@ int main()
 			perror("Error");
 		}
 		printf("After execve\n");
+	}
+	count++;
 	}
 	return (0);
 }
