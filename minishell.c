@@ -13,6 +13,8 @@ int main()
 	char *token;
 	size_t characters;
 	pid_t child;
+	char *exit = "exit";
+	/**char *EOF = EOF;*/
 
 	while (1)
 	{
@@ -31,17 +33,32 @@ int main()
 
 		child = fork();
 
+		if (strcmp(exit, token) == 0)
+		{
+			free(argv);
+			free(token);
+			break;
+		}
+		/**if (strcmp(EOF, token) == 0)
+		{
+			free(argv);
+			free(token);
+			break;
+		}*/
         	if (child == 0)
         	{
                 	if (execve (argv[0], argv, NULL) == -1)
                 	{
                         	perror("Error");
-                	}
-        	}
-        	else
+				free(argv);
+				free(buffer);
+			}
+		}
+		else
 		{
 			wait (NULL);
 		}
+	free(buffer);
 	}
-		return (characters);
+	return (characters);
 }
