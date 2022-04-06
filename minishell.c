@@ -32,7 +32,7 @@ int _strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 /**
- * main - main function
+ * main - main function.
  * Return: characters
  */
 int main()
@@ -69,12 +69,6 @@ int main()
 			free(token);
 			break;
 		}
-		/**if (scanf("%s", token) == EOF)
-                {
-                        free(argv);
-                        free(token);
-                        break;
-                }*/
         	if (child == 0)
         	{
                 	if (execve (argv[0], argv, NULL) == -1)
