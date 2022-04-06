@@ -75,6 +75,7 @@ int main()
                 	{
                         	perror("Error");
 				free (argv);
+				break;
 			}
 		}
 		else
