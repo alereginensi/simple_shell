@@ -50,15 +50,14 @@ int main()
                 	if (execve (argv[0], argv, NULL) == -1)
                 	{
                         	perror("Error");
-				free(argv);
-				free(buffer);
+				free (argv);
 			}
 		}
 		else
 		{
+			free(argv);
 			wait (NULL);
 		}
-	free(buffer);
 	}
 	return (characters);
 }
