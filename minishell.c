@@ -1,10 +1,29 @@
 #include "main.h"
 
 /**
+ * _strcmp - function that concatenates two strings
+ * @s1: variable
+ * @s2: variable
+ *
+ * Return: Always 0.
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i;
+
+
+	for (i = 0; *s1 != '\0' && *s2 != '\0' && *s1 == *s2; i++)
+	{
+		s1++;
+		s2++;
+	}
+
+	return (*s1 - *s2);
+}
+/**
  * main - main function
  * Return: characters
  */
-
 int main()
 {
 	char **argv;
@@ -14,7 +33,6 @@ int main()
 	size_t characters;
 	pid_t child;
 	char *exit = "exit";
-	/**char *EOF = EOF;*/
 
 	while (1)
 	{
@@ -33,18 +51,18 @@ int main()
 
 		child = fork();
 
-		if (strcmp(exit, token) == 0)
+		if (_strcmp(exit, token) == 0)
 		{
 			free(argv);
 			free(token);
 			break;
 		}
-		/**if (strcmp(EOF, token) == 0)
-		{
-			free(argv);
-			free(token);
-			break;
-		}*/
+		/**if (scanf("%s", token) == EOF)
+                {
+                        free(argv);
+                        free(token);
+                        break;
+                }*/
         	if (child == 0)
         	{
                 	if (execve (argv[0], argv, NULL) == -1)
