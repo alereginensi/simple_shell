@@ -44,17 +44,19 @@ int main()
 	size_t characters;
 	pid_t child;
 	char *exit = "exit";
+	int x;
 
-	while (1)
+	while (x)
 	{
-		/**if (isatty(STDOUT_FILENO) == 1)
-		{
-			_putchar('$');
-			_putchar(' ');
-		}*/
+		x = isatty(STDIN_FILENO);
 
-		_putchar('$');
-		_putchar(' ');
+		if (x == 1)
+		{
+			write(STDOUT_FILENO, "$ ", 13);
+		}
+
+		/**_putchar('$');
+		_putchar(' ');*/
 
 		argv = malloc(2 * sizeof(char*));
 
@@ -89,6 +91,6 @@ int main()
 			free(argv);
 			wait (NULL);
 			}
-		}
+	}
 	return (characters);
 }
