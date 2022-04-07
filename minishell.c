@@ -47,12 +47,15 @@ int main()
 
 	while (1)
 	{
+		if (isatty(STDOUT_FILENO) == 1)
+		{
+			_putchar('$');
+			_putchar(' ');
+		}
+
 		argv = malloc(2 * sizeof(char*));
 
 		argv[1] = NULL;
-
-		_putchar('$');
-		_putchar(' ');
 
 		characters = getline(&buffer, &bufsize, stdin);
 
@@ -62,27 +65,26 @@ int main()
 		argv[0] = token;
 
 		child = fork();
-
-		if (_strcmp(exit, token) == 0)
-		{
-			free(argv);
-			free(token);
-			break;
-		}
-        	if (child == 0)
-        	{
-                	if (execve (argv[0], argv, NULL) == -1)
-                	{
-                        	perror("Error");
-				free (argv);
+			if (_strcmp(exit, token) == 0)
+			{
+				free(argv);
+				free(token);
 				break;
 			}
-		}
-		else
-		{
+        		if (child == 0)
+        		{
+                		if (execve (argv[0], argv, NULL) == -1)
+                		{
+					perror("Error");
+					free (argv);
+					break;
+				}
+			}
+			else
+			{
 			free(argv);
 			wait (NULL);
+			}
 		}
-	}
 	return (characters);
 }
