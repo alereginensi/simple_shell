@@ -45,6 +45,7 @@ int main()
 	pid_t child;
 	char *exit = "exit";
 	int x;
+	size_t n = -1;
 
 	while (x)
 	{
@@ -67,7 +68,8 @@ int main()
 		argv[0] = token;
 
 		child = fork();
-			if (_strcmp(exit, token) == 0)
+
+			if (_strcmp(exit, token) == 0 || characters == n)
 			{
 				free(argv);
 				free(token);
