@@ -37,14 +37,14 @@ int _strcmp(char *s1, char *s2)
  */
 int main()
 {
-	char **argv;
+	char **argv = NULL;
 	char *buffer = NULL;
 	size_t bufsize = 32;
-	char *token;
+	char *token = NULL;
 	size_t characters;
-	pid_t child;
+	pid_t child = 0;
 	char *exit = "exit";
-	int x, counter = 0;
+	int x = 1, counter = 0;
 	size_t n = -1;
 
 	while (x)
@@ -57,24 +57,23 @@ int main()
 			_putchar(' ');
 		}
 
-		argv = malloc(2 * sizeof(char*));
-		argv[counter + 1] = NULL;
-
 		characters = getline(&buffer, &bufsize, stdin);
-		while (characters != '\0')
-		{
-			if ( == " ")
-				counter++;
-			characters++;
-		}
+		argv = malloc(characters * sizeof(char*));
+
 		token = strtok(buffer, "\n");
+		buffer[characters - 1] = '\0';
 		token = strtok(buffer, " ");
-		
-		argv[0] = token;
+		while (token != NULL)
+		{
+			argv[counter] = token;
+			counter++;
+			token = strtok(NULL, " ");
+		}
+		argv[counter + 1] = '\0';
 
 		child = fork();
 
-			if (_strcmp(exit, token) == 0 || characters == n)
+			if (_strcmp(exit, argv[0]) == 0 || characters == n)
 			{
 				free(argv);
 				free(token);
