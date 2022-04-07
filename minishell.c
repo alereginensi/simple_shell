@@ -44,7 +44,7 @@ int main()
 	size_t characters;
 	pid_t child;
 	char *exit = "exit";
-	int x;
+	int x, counter = 0;
 	size_t n = -1;
 
 	while (x)
@@ -58,13 +58,18 @@ int main()
 		}
 
 		argv = malloc(2 * sizeof(char*));
-		argv[1] = NULL;
+		argv[counter + 1] = NULL;
 
 		characters = getline(&buffer, &bufsize, stdin);
-
+		while (characters != '\0')
+		{
+			if ( == " ")
+				counter++;
+			characters++;
+		}
 		token = strtok(buffer, "\n");
 		token = strtok(buffer, " ");
-
+		
 		argv[0] = token;
 
 		child = fork();
