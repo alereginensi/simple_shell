@@ -56,9 +56,6 @@ int main()
 			_putchar(' ');
 		}
 
-		/**_putchar('$');
-		_putchar(' ');*/
-
 		argv = malloc(2 * sizeof(char*));
 
 		argv[1] = NULL;
