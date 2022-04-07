@@ -57,7 +57,6 @@ int main()
 		}
 
 		argv = malloc(2 * sizeof(char*));
-
 		argv[1] = NULL;
 
 		characters = getline(&buffer, &bufsize, stdin);
