@@ -47,11 +47,14 @@ int main()
 
 	while (1)
 	{
-		if (isatty(STDOUT_FILENO) == 1)
+		/**if (isatty(STDOUT_FILENO) == 1)
 		{
 			_putchar('$');
 			_putchar(' ');
-		}
+		}*/
+
+		_putchar('$');
+		_putchar(' ');
 
 		argv = malloc(2 * sizeof(char*));
 
@@ -77,6 +80,7 @@ int main()
                 		{
 					perror("Error");
 					free (argv);
+					free (token);
 					break;
 				}
 			}
