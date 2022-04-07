@@ -52,7 +52,8 @@ int main()
 
 		if (x == 1)
 		{
-			write(STDOUT_FILENO, "$ ", 13);
+			_putchar('$');
+			_putchar(' ');
 		}
 
 		/**_putchar('$');
