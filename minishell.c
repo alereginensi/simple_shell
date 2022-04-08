@@ -41,9 +41,9 @@ int main()
 	char *buffer = NULL;
 	size_t bufsize = 32;
 	char *token = NULL;
-	size_t characters;
+	size_t characters = 0;
 	pid_t child = 0;
-	char *exit = "exit";
+	char *exitt = "exit";
 	int x = 1, counter = 0;
 	size_t n = -1;
 
@@ -56,24 +56,23 @@ int main()
 			_putchar('$');
 			_putchar(' ');
 		}
-
 		characters = getline(&buffer, &bufsize, stdin);
-		argv = malloc(characters * sizeof(char*));
-
+		argv = malloc(2 * sizeof(char*));
 		token = strtok(buffer, "\n");
-		buffer[characters - 1] = '\0';
+		buffer[characters + 1] = '\0';
 		token = strtok(buffer, " ");
+
 		while (token != NULL)
 		{
 			argv[counter] = token;
 			counter++;
 			token = strtok(NULL, " ");
 		}
-		argv[counter + 1] = '\0';
+		argv[counter + 1] = NULL;
 
 		child = fork();
 
-			if (_strcmp(exit, argv[0]) == 0 || characters == n)
+			if (_strcmp(exitt, argv[0]) == 0 || characters == n)
 			{
 				free(argv);
 				free(token);
@@ -91,9 +90,14 @@ int main()
 			}
 			else
 			{
-			free(argv);
 			wait (NULL);
 			}
+			free(argv);
+			free(buffer);
+		        buffer = NULL;
+			counter = 0;
+			bufsize = 0;
 	}
+	free(buffer);
 	return (characters);
 }
