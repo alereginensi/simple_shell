@@ -41,10 +41,11 @@ int main()
 	char *buffer = NULL;
 	size_t bufsize = 32;
 	char *token = NULL;
-	ssize_t characters = 0;
+	size_t characters = 0;
 	pid_t child = 0;
 	char *exitt = "exit";
 	int x = 1, counter = 0;
+	size_t n = -1;
 
 	while (x)
 	{
@@ -56,7 +57,7 @@ int main()
 			_putchar(' ');
 		}
 		characters = getline(&buffer, &bufsize, stdin);
-		if (characters == - 1)
+		if (characters == n)
 			break;
 
 		argv = malloc(characters * sizeof(char*));
