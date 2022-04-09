@@ -57,7 +57,7 @@ int main()
 			_putchar(' ');
 		}
 		characters = getline(&buffer, &bufsize, stdin);
-		argv = malloc(2 * sizeof(char*));
+		argv = malloc(characters * sizeof(char*));
 		token = strtok(buffer, "\n");
 		buffer[characters + 1] = '\0';
 		token = strtok(buffer, " ");
