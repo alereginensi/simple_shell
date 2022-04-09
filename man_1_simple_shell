@@ -1,0 +1,21 @@
+.TH man_1_simple_shell 1 "April 8th 2022" "version 1.0" "simple shell manual"
+.SH NAME
+.B simple shell
+\-command and print output.
+.SH SYNOPSIS
+.B A simple shell that executes various commands.
+#include "main.h"
+.SH DESCRIPTION
+Text terminal window that is able to easily read file commands with arguments and printit's output.
+If an output error is encountered, "Error" is returned.
+.B Functions of our simple shell
+ exit - exits the terminal
+ EOF - ends the terminal's process
+.SH SEE ALSO
+simple_shell
+The simple_shell executes commands that are given by the user.
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Made by
+Alejandro Reginensi and Mauricio Percovich.
