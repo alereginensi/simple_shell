@@ -9,4 +9,7 @@
 #include <string.h>
 #include <sys/types.h>
 
+extern char **environ;
+void printenv(void);
+
 #endif

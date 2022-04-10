@@ -38,14 +38,13 @@ int _strcmp(char *s1, char *s2)
 int main()
 {
 	char **argv = NULL;
+	char *env = "env";
 	char *buffer = NULL;
-	size_t bufsize = 32;
+	size_t bufsize = 32, characters = 0, n = -1;
 	char *token = NULL;
-	size_t characters = 0;
 	pid_t child = 0;
 	char *exitt = "exit";
 	int x = 1, counter = 0;
-	size_t n = -1;
 
 	while (x)
 	{
@@ -71,6 +70,10 @@ int main()
 			counter++;
 			token = strtok(NULL, " ");
 		}
+		/**if (execve(argv[0], status) = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bi")
+		{
+			token = strtok(buffer, ":");
+		}*/
 		argv[counter + 1] = NULL;
 
 		child = fork();
@@ -80,6 +83,10 @@ int main()
 			free(argv);
 			free(token);
 			break;
+		}
+		if (_strcmp(env, argv[0]) == 0)
+		{
+				printenv();
 		}
         	if (child == 0)
         	{
