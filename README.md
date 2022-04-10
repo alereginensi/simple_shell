@@ -20,7 +20,7 @@ While using this shell, the syntax for running any command follows the familiar 
 -----
 As of today `exit` is the only builtin command
 
-`exit` - exit the shell
+| `exit` | - | exit the shell |
 
 ### Files
 -----
