@@ -6,9 +6,19 @@
 void printenv(void)
 {
     unsigned int i;
+    unsigned int x;
 
     for (i = 0; environ[i] != NULL; i++)
-    {    
-        printf("%s\n", environ[i]);
+    {
+    }
+    
+    while (x <= i)
+    {
+	    printf("%s\n", environ[x]);
+	    x++;
+    }
+    if (x == i)
+    {
+	    printf("%s", environ[x]);
     }
 }

@@ -70,7 +70,6 @@ int main()
 			counter++;
 			token = strtok(NULL, " ");
 		}
-<<<<<<< HEAD
 		/**if (execve(argv[0], status) = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bi")
 		{
 			token = strtok(buffer, ":");
@@ -79,27 +78,21 @@ int main()
 
 		child = fork();
 
-=======
->>>>>>> c2313a7c5bd5cd6c93bbb0d81fc6f42ab1c35fc1
 		if (_strcmp(exitt, argv[0]) == 0)
 		{
 			free(argv);
 			free(token);
 			break;
 		}
-<<<<<<< HEAD
-		if (_strcmp(env, argv[0]) == 0)
-		{
-				printenv();
-		}
-=======
-		argv[counter + 1] = NULL;
 
-		child = fork();
-
->>>>>>> c2313a7c5bd5cd6c93bbb0d81fc6f42ab1c35fc1
-        	if (child == 0)
+		if (child == 0)
         	{
+			if (_strcmp(env, argv[0]) == 0)
+                	{
+                        	printenv();
+				printf("\n");
+				break;
+               		}
                		if (execve (argv[0], argv, NULL) == -1)
                		{
 				perror("Error");
