@@ -17,8 +17,4 @@ void printenv(void)
 	    printf("%s\n", environ[x]);
 	    x++;
     }
-    if (x == i)
-    {
-	    printf("%s", environ[x]);
-    }
 }
