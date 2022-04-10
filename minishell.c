@@ -71,16 +71,16 @@ int main()
 			counter++;
 			token = strtok(NULL, " ");
 		}
-		argv[counter + 1] = NULL;
-
-		child = fork();
-
 		if (_strcmp(exitt, argv[0]) == 0)
 		{
 			free(argv);
 			free(token);
 			break;
 		}
+		argv[counter + 1] = NULL;
+
+		child = fork();
+
         	if (child == 0)
         	{
                		if (execve (argv[0], argv, NULL) == -1)
