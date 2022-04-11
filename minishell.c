@@ -49,7 +49,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		if (_strcmp(exitt, argv[0]) == 0)
 		{
 			free(argv), free(token);
-			return (2);	}
+			break;	}
 		if (child == 0)
 		{
 			if (_strcmp("env", argv[0]) == 0)
@@ -64,5 +64,5 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			wait(NULL);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
 	free(buffer);
-	return (0);
+	return (2);
 }
