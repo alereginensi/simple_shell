@@ -25,7 +25,7 @@ int _strcmp(char *s1, char *s2)
  * Return: characters.
  */
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
-{	char /**argv = NULL,*/ *buffer = NULL, *exitt = "exit";
+{	char *buffer = NULL, *exitt = "exit";
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
@@ -62,7 +62,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 				break;	}	}
 		else
 			wait(NULL);
-		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;
-	free(buffer);	}
+		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
+	free(buffer);
 	return (0);
 }
