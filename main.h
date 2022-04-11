@@ -13,5 +13,6 @@ extern char **environ;
 void printenv(void);
 int _putchar(char c);
 int _strlen(char *s);
+int changer(char *str);
 
 #endif
