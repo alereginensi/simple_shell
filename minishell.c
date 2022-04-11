@@ -22,7 +22,7 @@ int _strcmp(char *s1, char *s2)
 }
 /**
  * main - main function.
- * Return: characters.
+ * Return: characterts
  */
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
 {	char *buffer = NULL, *exitt = "exit";
