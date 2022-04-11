@@ -25,16 +25,14 @@ int _strcmp(char *s1, char *s2)
  * Return: characters
  */
 int main(void)
-{
-	char **argv = NULL, *env = "env", *buffer = NULL, *exitt = "exit";
+{	char **argv = NULL, *env = "env", *buffer = NULL, *exitt = "exit";
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
 	int x = 1, counter = 0;
 
 	while (x)
-	{
-		x = isatty(STDIN_FILENO);
+	{	x = isatty(STDIN_FILENO);
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);

@@ -2,6 +2,7 @@
 /**
  * changer - changes tabs for spaces
  * @str: string
+ * Return: 0
 **/
 int changer(char *str)
 {
