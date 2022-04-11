@@ -29,7 +29,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
-	int x = 1, counter = 0;
+	int x = 1, counter = 0, status = 0;
 
 	while (x)
 	{	x = isatty(STDIN_FILENO);
@@ -58,11 +58,11 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 				break;	}
 			if (execve(argv[0], argv, env) == -1)
 			{
-				perror("Error"), free(argv), free(token);
+				perror("Error"), free(argv),free(token);
 				break;	}	}
 		else
-			wait(NULL);
+			wait(&status);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
 	free(buffer);
-	return (0);
+	return (WEXITSTATUS(status));
 }
