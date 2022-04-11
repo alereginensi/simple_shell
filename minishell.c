@@ -37,7 +37,10 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
+		{	
+			_putchar('\n');	
 			break;
+		}
 		if (changer(buffer) == 0)
 			continue;
 		argv = malloc(characters * sizeof(char *));
