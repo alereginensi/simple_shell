@@ -25,7 +25,7 @@ int _strcmp(char *s1, char *s2)
  * Return: characters.
  */
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
-{	char *buffer = NULL, *exitt = "exit";
+{	char /**argv = NULL,*/ *buffer = NULL, *exitt = "exit";
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
