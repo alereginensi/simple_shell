@@ -27,7 +27,7 @@ int _strcmp(char *s1, char *s2)
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
 {	char *buffer = NULL, *exitt = "exit", *buff = NULL;
 	char *token = NULL;
-	size_t bufsize = 32, characters = 0, n = -1;
+	size_t bufsize = 1024, characters = 0, n = -1;
 	pid_t child = 0;
 	int counter = 0, status = 0, x = 1;
 
@@ -44,7 +44,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		}
 		if (changer(buffer) == 0)
 			continue;
-		argv = malloc(characters * sizeof(char *));
+		argv = malloc(sizeof(char) * bufsize);
 		buff = buffer;
 		token = strtok(buff, "\n"), buff[characters + 1] = '\0';
 		token = strtok(buff, " ");
