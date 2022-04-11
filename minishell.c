@@ -24,82 +24,45 @@ int _strcmp(char *s1, char *s2)
  * main - main function.
  * Return: characters
  */
-int main()
+int main(void)
 {
-	char **argv = NULL;
-	char *env = "env";
-	char *buffer = NULL;
-	size_t bufsize = 32, characters = 0, n = -1;
+	char **argv = NULL, *env = "env", *buffer = NULL, *exitt = "exit";
 	char *token = NULL;
+	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
-	char *exitt = "exit";
 	int x = 1, counter = 0;
 
 	while (x)
 	{
 		x = isatty(STDIN_FILENO);
-
 		if (x == 1)
-		{
-			_putchar('$');
-			_putchar(' ');
-		}
+			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
 			break;
-
-		argv = malloc(characters * sizeof(char*));
-		token = strtok(buffer, "\n");
-		buffer[characters + 1] = '\0';
+		argv = malloc(characters * sizeof(char *));
+		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
 		token = strtok(buffer, " ");
-
 		while (token != NULL)
-		{
-			argv[counter] = token;
-			counter++;
-			token = strtok(NULL, " ");
-		}
-		/**if (execve(argv[0], status) = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bi")
-		{
-			token = strtok(buffer, ":");
-		}*/
-		argv[counter + 1] = NULL;
-
-		child = fork();
-
+			argv[counter] = token, counter++, token = strtok(NULL, " ");
+		argv[counter + 1] = NULL, child = fork();
 		if (_strcmp(exitt, argv[0]) == 0)
 		{
-			free(argv);
-			free(token);
-			break;
-		}
-
+			free(argv), free(token);
+			break;	}
 		if (child == 0)
-        	{
-			if (_strcmp(env, argv[0]) == 0)
-                	{
-                        	printenv();
-				_putchar('\n');
-				break;
-               		}
-               		if (execve (argv[0], argv, NULL) == -1)
-               		{
-				perror("Error");
-				free (argv);
-				free (token);
-				break;
-			}
-		}
-		else
 		{
-			wait (NULL);
-		}
-		free(argv);
-		free(buffer);
-	        buffer = NULL;
-		counter = 0;
-		bufsize = 0;
-	}
+			if (_strcmp(env, argv[0]) == 0)
+			{
+				printenv(), _putchar('\n'), free(argv);
+				break;	}
+			if (execve(argv[0], argv, NULL) == -1)
+			{
+				perror("Error"), free(argv), free(token);
+				break;	}	}
+		else
+			wait(NULL);
+		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
 	free(buffer);
 	return (characters);
 }
