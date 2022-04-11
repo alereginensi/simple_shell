@@ -42,7 +42,7 @@ int main(void)
 			break;
 		argv = malloc(characters * sizeof(char *));
 		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
-		token = strtok(buffer, " ");
+		token = strtok(buffer, " "), token = strtok(buffer, "\t");
 		while (token != NULL)
 			argv[counter] = token, counter++, token = strtok(NULL, " ");
 		argv[counter + 1] = NULL, child = fork();
