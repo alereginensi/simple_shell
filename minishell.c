@@ -42,7 +42,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			continue;
 		argv = malloc(characters * sizeof(char *));
 		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
-		token = strtok(buffer, " \t");
+		token = strtok(buffer, " ");
 		while (token != NULL)
 			argv[counter] = token, counter++, token = strtok(NULL, " ");
 		argv[counter + 1] = NULL, child = fork();
