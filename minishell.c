@@ -64,5 +64,5 @@ int main(void)
 			wait(NULL);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
 	free(buffer);
-	return (characters);
+	return (0);
 }
