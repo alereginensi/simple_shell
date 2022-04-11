@@ -22,7 +22,7 @@ int _strcmp(char *s1, char *s2)
 }
 /**
  * main - main function.
- * Return: characters
+ * Return: characters.
  */
 int main(void)
 {
