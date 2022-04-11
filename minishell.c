@@ -29,11 +29,12 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
-	int counter = 0, status = 0;
+	int counter = 0, status = 0, x = 1;
 
-	while (1)
+	while (x)
 	{
-		if (isatty(STDIN_FILENO))
+		x = (isatty(STDIN_FILENO));
+
 		_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
