@@ -40,6 +40,8 @@ int main(void)
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
 			break;
+		if (changer(buffer) == -1)
+			continue;
 		argv = malloc(characters * sizeof(char *));
 		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
 		token = strtok(buffer, " ");/**token = strtok(buffer, "\t");*/
