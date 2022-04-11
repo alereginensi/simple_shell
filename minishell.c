@@ -33,8 +33,6 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 
 	while (x)
 	{
-	while (1)
-	{
 		x = isatty(STDIN_FILENO);
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
@@ -69,6 +67,6 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		else
 			wait(&status);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
-	free(buffer);	}
+	free(buffer);
 	return (WEXITSTATUS(status));
 }
