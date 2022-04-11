@@ -34,8 +34,8 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	while (x)
 	{
 		x = (isatty(STDIN_FILENO));
-
-		_putchar('$'), _putchar(' ');
+		if (x == 1)
+			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
 		{	
