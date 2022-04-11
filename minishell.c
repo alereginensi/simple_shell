@@ -49,7 +49,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		if (_strcmp(exitt, argv[0]) == 0)
 		{
 			free(argv), free(token);
-			break;	}
+			return (2);	}
 		if (child == 0)
 		{
 			if (_strcmp("env", argv[0]) == 0)
