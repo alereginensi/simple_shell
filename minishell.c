@@ -64,5 +64,5 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			wait(NULL);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
 	free(buffer);
-	return (2);
+	return (0);
 }
