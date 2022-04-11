@@ -31,7 +31,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	pid_t child = 0;
 	int x = 1, counter = 0;
 
-	while (x)
+	while (1)
 	{	x = isatty(STDIN_FILENO);
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
@@ -62,7 +62,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 				break;	}	}
 		else
 			wait(NULL);
-		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
-	free(buffer);
+		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;
+	free(buffer);	}
 	return (0);
 }
