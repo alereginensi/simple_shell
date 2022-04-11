@@ -31,7 +31,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	pid_t child = 0;
 	int x = 1, counter = 0;
 
-	while (1)
+	while (x)
 	{	x = isatty(STDIN_FILENO);
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
