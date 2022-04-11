@@ -25,17 +25,16 @@ int _strcmp(char *s1, char *s2)
  * Return: characters.
  */
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
-{	char *buffer = NULL, *exitt = "exit";
+{	char *buffer = NULL, *exitt = "exit", *buff = NULL;
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
-	int x = 1, counter = 0, status = 0;
+	int counter = 0, status = 0;
 
-	while (x)
+	while (1)
 	{
-		x = isatty(STDIN_FILENO);
-		if (x == 1)
-			_putchar('$'), _putchar(' ');
+		if (isatty(STDIN_FILENO))
+		_putchar('$'), _putchar(' ');	
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
 		{	
@@ -45,8 +44,9 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		if (changer(buffer) == 0)
 			continue;
 		argv = malloc(characters * sizeof(char *));
-		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
-		token = strtok(buffer, " ");
+		buff = buffer;
+		token = strtok(buff, "\n"), buff[characters + 1] = '\0';
+		token = strtok(buff, " ");
 		while (token != NULL)
 			argv[counter] = token, counter++, token = strtok(NULL, " ");
 		argv[counter + 1] = NULL, child = fork();
