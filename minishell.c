@@ -24,8 +24,8 @@ int _strcmp(char *s1, char *s2)
  * main - main function.
  * Return: characters.
  */
-int main(void)
-{	char **argv = NULL, *env = "env", *buffer = NULL, *exitt = "exit";
+int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
+{	char /**argv = NULL,*/ *buffer = NULL, *exitt = "exit";
 	char *token = NULL;
 	size_t bufsize = 32, characters = 0, n = -1;
 	pid_t child = 0;
@@ -42,7 +42,7 @@ int main(void)
 			continue;
 		argv = malloc(characters * sizeof(char *));
 		token = strtok(buffer, "\n"), buffer[characters + 1] = '\0';
-		token = strtok(buffer, " ");/**token = strtok(buffer, "\t");*/
+		token = strtok(buffer, " ");
 		while (token != NULL)
 			argv[counter] = token, counter++, token = strtok(NULL, " ");
 		argv[counter + 1] = NULL, child = fork();
@@ -52,11 +52,11 @@ int main(void)
 			break;	}
 		if (child == 0)
 		{
-			if (_strcmp(env, argv[0]) == 0)
+			if (_strcmp("env", argv[0]) == 0)
 			{
 				printenv(), _putchar('\n'), free(argv);
 				break;	}
-			if (execve(argv[0], argv, NULL) == -1)
+			if (execve(argv[0], argv, env) == -1)
 			{
 				perror("Error"), free(argv), free(token);
 				break;	}	}
