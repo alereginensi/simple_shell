@@ -33,6 +33,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 
 	while (1)
 	{
+		signal(SIGINT, controlc);
 		x = (isatty(STDIN_FILENO));
 		if (x == 1)
 			_putchar('$'), _putchar(' ');

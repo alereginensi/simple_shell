@@ -14,5 +14,6 @@ void printenv(void);
 int _putchar(char c);
 int _strlen(char *s);
 int changer(char *str);
+void controlc(int sig_num);
 
 #endif
