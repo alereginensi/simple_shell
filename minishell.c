@@ -27,9 +27,8 @@ int _strcmp(char *s1, char *s2)
  * @argv: Argument value.
  * @env: Enviroment variable.
  */
-int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
-{	char *buffer = NULL, *exitt = "exit", *buff = NULL;
-	char *token = NULL;
+int main(int __attribute__((unused)) argc, char *argv[], char **env)
+{	char *buffer = NULL, *exitt = "exit", *buff = NULL, *token = NULL;
 	size_t bufsize = 1024, characters = 0, n = -1;
 	pid_t child = 0;
 	int counter = 0, status = 0, x = 1;
@@ -41,7 +40,8 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
-		{	if (x == 1)
+		{
+			if (x == 1)
 				_putchar('\n');
 			break;	}
 		if (changer(buffer) == 0)
