@@ -31,15 +31,16 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	pid_t child = 0;
 	int counter = 0, status = 0, x = 1;
 
-	while (x)
+	while (1)
 	{
 		x = (isatty(STDIN_FILENO));
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
-		{	
-			_putchar('\n');	
+		{
+			if (x == 1)	
+				_putchar('\n');	
 			break;
 		}
 		if (changer(buffer) == 0)
