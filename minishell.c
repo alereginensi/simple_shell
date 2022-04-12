@@ -68,4 +68,5 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 		else
 			wait(&status);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
-	free(buffer), return (WEXITSTATUS(status));	}
+	free(buffer);
+	return (WEXITSTATUS(status));	}
