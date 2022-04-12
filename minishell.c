@@ -41,8 +41,7 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
-		{
-			if (x == 1)
+		{	if (x == 1)
 				_putchar('\n');
 			break;	}
 		if (changer(buffer) == 0)
