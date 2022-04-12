@@ -21,8 +21,11 @@ int _strcmp(char *s1, char *s2)
 	return (*s1 - *s2);
 }
 /**
- * main - main function.
- * Return: characters.
+ * main - Main function of Simple Shell.
+ * Return: An integer depending on the input.
+ * @argc: Argument counter.
+ * @argv: Argument value.
+ * @env: Enviroment variable.
  */
 int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[], char **env)
 {	char *buffer = NULL, *exitt = "exit", *buff = NULL;
@@ -32,44 +35,37 @@ int main(int __attribute__((unused)) argc, char  __attribute__((unused)) *argv[]
 	int counter = 0, status = 0, x = 1;
 
 	while (1)
-	{
-		signal(SIGINT, controlc);
+	{	signal(SIGINT, controlc);
 		x = (isatty(STDIN_FILENO));
 		if (x == 1)
 			_putchar('$'), _putchar(' ');
 		characters = getline(&buffer, &bufsize, stdin);
 		if (characters == n)
 		{
-			if (x == 1)	
-				_putchar('\n');	
-			break;
-		}
+			if (x == 1)
+				_putchar('\n');
+			break;	}
 		if (changer(buffer) == 0)
 			continue;
-		argv = malloc(sizeof(char) * bufsize);
-		buff = buffer;
+		argv = malloc(sizeof(char) * bufsize), buff = buffer;
 		token = strtok(buff, "\n"), buff[characters + 1] = '\0';
 		token = strtok(buff, " ");
 		while (token != NULL)
 			argv[counter] = token, counter++, token = strtok(NULL, " ");
 		argv[counter + 1] = NULL, child = fork();
 		if (_strcmp(exitt, argv[0]) == 0)
-		{
-			free(argv), free(token);
+		{	free(argv), free(token);
 			break;	}
 		if (child == 0)
 		{
 			if (_strcmp("env", argv[0]) == 0)
-			{
-				printenv(), _putchar('\n'), free(argv);
+			{	printenv(), _putchar('\n'), free(argv);
 				break;	}
 			if (execve(argv[0], argv, env) == -1)
 			{
-				perror("Error"), free(argv),free(token);
+				perror("Error"), free(argv), free(token);
 				break;	}	}
 		else
 			wait(&status);
 		free(argv), free(buffer), buffer = NULL, counter = 0, bufsize = 0;	}
-	free(buffer);
-	return (WEXITSTATUS(status));
-}
+	free(buffer), return (WEXITSTATUS(status));	}
