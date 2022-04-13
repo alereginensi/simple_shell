@@ -46,7 +46,7 @@ Brief description of every file in this repository.
 ### Flowchart
 -----
 
-<img src="https://github.com/alereginensi/simple_shell/issues/1#issue-1203398671">
+<img src ="https://github.com/alereginensi/simple_shell/issues/1#issue-1203398671">
 
 
 
