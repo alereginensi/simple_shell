@@ -43,6 +43,12 @@ Brief description of every file in this repository.
 | envi.c | this file contains our "printenv" function, this is how we print the enviroment |
 | README.md | This is the file that you are reading |
 
+### Flowchart
+-----
+
+<img src="https://github.com/alereginensi/simple_shell/issues/1#issue-1203398671">
+
+
 
 ### Authors
 ---
